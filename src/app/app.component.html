@@ -1,0 +1,23 @@
+<main>
+  <div class="header">
+    <h1>Zoom App</h1>
+    <button (click)="createMeeting()">Create Meeting</button>
+  </div>
+
+   <div class="content">
+    <ul *ngIf="meetings.length > 0; else noMeetings">
+      <li *ngFor="let meet of meetings">
+        <strong>{{ meet.topic }}</strong>
+        <p>ID - {{ meet.id }}</p>
+        <p>Start time: {{ meet.start_time }}</p>
+        <button (click)="joinMeeting(meet)">JOIN</button>
+      </li>
+    </ul>
+
+    <ng-template #noMeetings>
+      <div id="emptyMessage">
+        <span>No meetings created yet</span>
+      </div>
+    </ng-template>
+  </div> 
+</main> 
